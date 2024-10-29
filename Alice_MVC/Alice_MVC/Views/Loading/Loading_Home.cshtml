@@ -1,0 +1,27 @@
+﻿@{
+	ViewData["Title"] = "Loading_Home";
+	Layout = "Loading_Layout";
+}
+
+
+<div id="load">
+	<div>G</div>
+	<div>N</div>
+	<div>I</div>
+	<div>D</div>
+	<div>A</div>
+	<div>O</div>
+	<div>L</div>
+</div>
+
+
+<script>
+
+	function countDown() {
+		window.location.href = `/Home/Alice_Home`;
+	}
+
+	window.setInterval("countDown()", 7000);
+
+</script>
+

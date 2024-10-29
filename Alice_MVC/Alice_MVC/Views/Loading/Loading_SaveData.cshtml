@@ -1,0 +1,37 @@
+﻿@{
+	ViewData["Title"] = "Loading_SaveData";
+	Layout = "Loading_Layout";
+}
+
+<h1 style="display:none;" id="videolink">@ViewBag.Link</h1>
+
+<div id="load">
+	<div>G</div>
+	<div>N</div>
+	<div>I</div>
+	<div>D</div>
+	<div>A</div>
+	<div>O</div>
+	<div>L</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+	var s = null;
+
+	$(function () {
+
+
+		s = $("#videolink").html();
+
+		window.setInterval("countDown()", 8000);
+
+	})
+
+	function countDown() {
+		window.location.href = `/Loading/Loading_To_Master?video=${s}`;
+	}
+
+</script>
+

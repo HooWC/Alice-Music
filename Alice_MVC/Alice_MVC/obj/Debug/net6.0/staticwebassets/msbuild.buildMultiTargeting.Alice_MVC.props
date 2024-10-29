@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Alice_MVC.props" />
+</Project>

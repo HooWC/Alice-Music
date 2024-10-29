@@ -1,0 +1,638 @@
+﻿@{
+	ViewData["Title"] = "Music";
+}
+
+
+<html>
+<head>
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			user-select: none;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		a:link, a:visited, a:hover, a:active {
+			text-decoration: none;
+		}
+
+		.rank-list > ul > li > a, .singer > div > p {
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+
+			.list-name:hover, .cd-name:hover, .cd-author:hover, .rank-type > a:hover, .rank-list > ul > li > a:hover, .about > a:hover, .user-name:hover, .see-more:hover {
+				text-decoration: underline;
+			}
+
+
+
+		.containerv {
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			border-bottom: none;
+			overflow: hidden;
+			background: black;
+		}
+
+		hr {
+			border: 1px solid #c10d0c;
+		}
+
+		.recommends {
+			background-color: black;
+			border-right: 1px #ccc solid;
+			width: 100%;
+			min-height: 100vh;
+			float: left;
+			padding: 20px 10px 20px 10px;
+			margin: 0 auto;
+		}
+
+		.logoimg {
+			width: 45px;
+		}
+
+		.titlev {
+			color: red;
+			font-size: 20px;
+			font-family: 'Times New Roman', Times, serif;
+		}
+		.titlev:hover{
+				color: red;
+		}
+
+		#hot > .title, #new-cd > .title, #rank > .title {
+			float: left;
+			width: 100px;
+		}
+
+		.type {
+			overflow: hidden;
+			color: #666;
+			font-size: 16px;
+		}
+
+			.type > li {
+				float: left;
+				font-weight: bold;
+			}
+
+				.type > li > span {
+					color: #666;
+					line-height: 27px;
+					padding: 0 10px;
+					vertical-align: middle;
+				}
+
+					.type > li > span:hover {
+						cursor: pointer;
+					}
+
+
+		.lists {
+			overflow: hidden;
+			padding-top: 20px;
+			padding: 20px 0px 0px 10px;
+			margin: 0;
+		}
+
+			.lists > li {
+				float: left;
+				width: 200px;
+				height: 200px;
+				margin-right: 6px;
+			}
+
+				.lists > li img {
+					height: 110px;
+					margin-bottom: 0.6rem;
+				}
+
+		img {
+			width: 100%;
+		}
+
+		.lists > li.no-right-margin {
+			margin: 0;
+		}
+
+		.cover {
+			background-color: #333;
+			opacity: 0.8;
+			height: 30px;
+			width: 200px;
+			position: absolute;
+			margin-top: -35px;
+		}
+
+			.cover > span {
+				display: block;
+				float: left;
+			}
+
+				.cover > span:last-child {
+					float: right;
+				}
+
+		.listen {
+			display: block;
+			background: url(http://s2.music.126.net/style/web2/img/iconall.png) 0 -24px no-repeat;
+			height: 11px;
+			width: 14px;
+			margin: 9px 5px 9px 10px;
+		}
+
+		.count-free {
+			font-size: 12px;
+			color: #d3d3d3;
+			margin: 7px auto;
+			font-weight: bold;
+		}
+
+		.count-vip {
+			font-size: 12px;
+			color: #d60202;
+			margin: 7px auto;
+			font-weight: bold;
+		}
+
+		.play-btn {
+			display: block;
+			background: url(http://s2.music.126.net/style/web2/img/iconall.png) 0 0 no-repeat;
+			height: 17px;
+			width: 16px;
+			margin: 7px 10px 7px 0;
+		}
+
+		.list-name {
+			color: #fff;
+			font-size: 14px;
+			line-height: 18px;
+			display: block;
+			transition: all .3s;
+		}
+
+			.list-name:hover {
+				text-decoration: none;
+				color: orangered;
+			}
+
+
+
+		* {
+			box-sizing: border-box;
+		}
+
+
+		.Searchcontainer {
+			width: 700px;
+			margin: auto;
+			padding: 0 0 15px 0;
+			height: 100%;
+			outline: none;
+			top: -100px;
+		}
+
+		.search-container {
+			overflow: hidden;
+			float: right;
+			height: 2em;
+			width: 2em;
+			object-fit: cover;
+			background-size: contain;
+			border-radius: 2em;
+			box-shadow: 0 0 5px #6A5D4F;
+			-moz-transition: all 0.35s;
+			-webkit-transition: all 0.35s;
+		}
+
+
+			.search-container:hover, .search-container:focus, .search-container:focus-within {
+				width: 25em;
+				border-radius: 5px 2em 2em 5px;
+				outline: none;
+			}
+
+
+				.search-container:hover input, .search-container:focus input, .search-container:focus-within input {
+					display: inline-block;
+					width: 19em;
+					padding: 10px;
+				}
+
+		.SearchInput {
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			appearance: none;
+			float: left;
+			width: 0em;
+			height: 1.5em;
+			margin: 0.2em;
+			margin-right: -4.5em;
+			background: #fff;
+			color: #6A5D4F;
+			font-size: 1em;
+			font-weight: 600;
+			padding: 0px;
+			border: 0;
+			border-radius: 5px;
+			box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2) inset;
+			text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+			-moz-transition: all 0.25s;
+			-webkit-transition: all 0.25s;
+		}
+
+			.SearchInput:focus {
+				outline: none;
+				box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.25), 0 1px 5px rgba(0, 0, 0, 0.15);
+			}
+
+		.Searchbutton {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			float: right;
+			width: 1em;
+			height: 1em;
+			margin: 0em;
+			background: #6A5D4F;
+			text-align: center;
+			font-size: 2em;
+			color: #FDF6E3;
+			border-radius: 50%;
+			box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.25), 0 1px 1px rgba(0, 0, 0, 0.25);
+			text-shadow: 0 -2px 1px rgba(0, 0, 0, 0.3);
+		}
+
+			.Searchbutton:active {
+				border: 0 !important;
+				text-shadow: 0 0 0;
+			}
+
+			.Searchbutton i {
+				font-size: 50%;
+			}
+
+				.Searchbutton i:hover, .Searchbutton:hover {
+					color: red;
+				}
+
+		.box-search {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	</style>
+
+</head>
+<body>
+
+	<h1 style="display:none;" id="songtypeDetail">@ViewBag.songtype</h1>
+	<h1 style="display:none;" id="ChooseType">All</h1>
+
+	<div class="containerv">
+		<div class="recommends">
+
+			<div id="hot">
+				<img class="logoimg" src="~/Image/logo.png" alt="Logo"><a class="titlev">Alice <span style="color:white;">Music</span></a>
+				<div class="box-search">
+					<ul class="type">
+						<li><span id="btn0">All</span>|</li>
+						<li><span id="btn1">Pop</span>|</li>
+						<li><span id="btn2">Rock</span>|</li>
+						<li><span id="btn3">Soft</span>|</li>
+						<li><span id="btn4">Sad</span>|</li>
+						<li><span id="btn5">Chinese</span>|</li>
+						<li><span id="btn6">English</span>|</li>
+						<li><span id="btn7">Japanese</span></li>
+					</ul>
+
+					<div class="Searchcontainer" tabindex="1">
+						<div class="search-container" tabindex="1">
+							<input id="searchtext" class="SearchInput" placeholder="search" type="text" />
+							<a class="Searchbutton">
+								<i class="fa fa-search"></i>
+							</a>
+						</div>
+					</div>
+
+				</div>
+
+
+
+
+				<hr>
+
+				<ul class="lists" id="list1">
+				</ul>
+
+
+			</div>
+
+		</div>
+
+
+
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+
+		$(".Musicpage").css({
+			"background": "red",
+			"border-radius": "5px"
+		});
+
+		$(function () {
+			$("#btn0").css("color", "red");
+
+			$.ajax({
+				type: "GET",
+				url: "/Ajax/GetAllMusic",
+				dataType: "json",
+				success: function (data) {
+
+					GetData(data, "list1");
+				}
+			})
+
+			var songtype = $("#songtypeDetail").html();
+			console.log("一开始" + songtype)
+
+			if (songtype != "none") {
+
+				$("#ChooseType").html(songtype)
+
+				if (songtype == "All") {
+					$("#btn2,#btn3,#btn4,#btn5,#btn1,#btn6,#btn7").css("color", "#666");
+					$("#btn0").css("color", "red");
+				} else if (songtype == "Pop") {
+					$("#btn2,#btn3,#btn4,#btn5,#btn0,#btn6,#btn7").css("color", "#666");
+					$("#btn1").css("color", "red");
+				} else if (songtype == "Rock") {
+					$("#btn1,#btn3,#btn4,#btn5,#btn0,#btn6,#btn7").css("color", "#666");
+					$("#btn2").css("color", "red");
+				} else if (songtype == "Soft") {
+					$("#btn2,#btn1,#btn4,#btn5,#btn0,#btn6,#btn7").css("color", "#666");
+					$("#btn3").css("color", "red");
+				} else if (songtype == "Sad") {
+					$("#btn1,#btn3,#btn2,#btn5,#btn0,#btn6,#btn7").css("color", "#666");
+					$("#btn4").css("color", "red");
+				} else if (songtype == "Chinese") {
+					$("#btn1,#btn3,#btn4,#btn2,#btn0,#btn6,#btn7").css("color", "#666");
+					$("#btn5").css("color", "red");
+				} else if (songtype == "English") {
+					$("#btn1,#btn3,#btn4,#btn2,#btn0,#btn5,#btn7").css("color", "#666");
+					$("#btn6").css("color", "red");
+				} else if (songtype == "Japanese") {
+					$("#btn1,#btn3,#btn4,#btn2,#btn0,#btn6,#btn5").css("color", "#666");
+					$("#btn7").css("color", "red");
+				}
+
+				$("#songtypeDetail").html("none");
+
+
+				$.ajax({
+					type: "POST",
+					url: "/Ajax/GetSongtype",
+					dataType: "json",
+					data: {
+						songtype: songtype
+					},
+					success: function (data) {
+
+						$("#list1").empty();
+						GetData(data, "list1");
+					}
+				})
+
+			}
+
+
+			$("#btn0").click(function () {
+				$("#btn2,#btn3,#btn4,#btn5,#btn1,#btn6,#btn7").css("color", "#666");
+				$("#btn0").css("color", "red");
+
+				$("#list1").empty();
+				$("#ChooseType").html("All");
+
+				$.ajax({
+					type: "GET",
+					url: "/Ajax/GetAllMusic",
+					dataType: "json",
+					success: function (data) {
+
+						GetData(data, "list1");
+					}
+				})
+			})
+
+			$("#btn1").click(function () {
+				$("#btn2,#btn3,#btn4,#btn5,#btn0,#btn6,#btn7").css("color", "#666");
+				$("#btn1").css("color", "red");
+
+				$("#list1").empty();
+				$("#ChooseType").html("Pop");
+
+				$.ajax({
+					type: "GET",
+					url: "/Ajax/GetAll_Pop",
+					dataType: "json",
+					success: function (data) {
+
+						GetData(data, "list1");
+					}
+				})
+			})
+
+			$("#btn2").click(function () {
+				$("#btn1,#btn3,#btn4,#btn5,#btn0,#btn6,#btn7").css("color", "#666");
+				$("#btn2").css("color", "red");
+
+				$("#list1").empty();
+				$("#ChooseType").html("Rock");
+
+
+				$.ajax({
+					type: "GET",
+					url: "/Ajax/GetAll_Rock",
+					dataType: "json",
+					success: function (data) {
+
+						GetData(data, "list1");
+					}
+				})
+			})
+
+			$("#btn3").click(function () {
+				$("#btn2,#btn1,#btn4,#btn5,#btn0,#btn6,#btn7").css("color", "#666");
+				$("#btn3").css("color", "red");
+				$("#list1").empty();
+				$("#ChooseType").html("Soft");
+
+
+				$.ajax({
+					type: "GET",
+					url: "/Ajax/GetAll_Soft",
+					dataType: "json",
+					success: function (data) {
+
+						GetData(data, "list1");
+					}
+				})
+			})
+
+			$("#btn4").click(function () {
+				$("#btn1,#btn3,#btn2,#btn5,#btn0,#btn6,#btn7").css("color", "#666");
+				$("#btn4").css("color", "red");
+				$("#list1").empty();
+				$("#ChooseType").html("Sad");
+
+
+				$.ajax({
+					type: "GET",
+					url: "/Ajax/GetAll_Sad",
+					dataType: "json",
+					success: function (data) {
+
+						GetData(data, "list1");
+					}
+				})
+			})
+
+			$("#btn5").click(function () {
+				$("#btn1,#btn3,#btn4,#btn2,#btn0,#btn6,#btn7").css("color", "#666");
+				$("#btn5").css("color", "red");
+				$("#list1").empty();
+				console.log("进入中文")
+				$("#ChooseType").html("Chinese");
+
+
+				$.ajax({
+					type: "GET",
+					url: "/Ajax/GetAll_Chinese",
+					dataType: "json",
+					success: function (data) {
+
+						GetData(data, "list1");
+					}
+				})
+			})
+
+			$("#btn6").click(function () {
+				$("#btn1,#btn3,#btn4,#btn2,#btn0,#btn5,#btn7").css("color", "#666");
+				$("#btn6").css("color", "red");
+				$("#list1").empty();
+				$("#ChooseType").html("English");
+
+
+				$.ajax({
+					type: "GET",
+					url: "/Ajax/GetAll_English",
+					dataType: "json",
+					success: function (data) {
+
+						GetData(data, "list1");
+					}
+				})
+			})
+
+			$("#btn7").click(function () {
+				$("#btn1,#btn3,#btn4,#btn2,#btn0,#btn6,#btn5").css("color", "#666");
+				$("#btn7").css("color", "red");
+				$("#list1").empty();
+				$("#ChooseType").html("Japanese");
+
+
+				$.ajax({
+					type: "GET",
+					url: "/Ajax/GetAll_Japanese",
+					dataType: "json",
+					success: function (data) {
+
+						GetData(data, "list1");
+					}
+				})
+			})
+
+			$("#searchtext").keyup(function () {
+				var choose = $("#ChooseType").html();
+
+				console.log(choose)
+
+				$.ajax({
+					type: "POST",
+					url: "/Ajax/Music_Search_Input",
+					dataType: "json",
+					data: {
+						search: $(this).val(),
+						choose: choose
+					},
+					success: function (data) {
+						$("#list1").empty();
+						GetData(data, "list1");
+					}
+				})
+
+
+			})
+
+
+		})
+
+		function GetData(data, name) {
+			$.each(data, function (x, y) {
+
+				var s = "";
+				var page = "";
+				if (y.ispaid == "VIP") {
+					s = `<span class="count-vip">${y.ispaid}</span>`;
+					page = `<li>
+																																																																																																																																																																																																																																																																														<a href="/Music/AddtoCart?SongID=${y.mid}">
+																																																																																																																																																																																																																																																																															<img src="${y.songImg}" alt="">
+																																																																																																																																																																																																																																																																															<div class="cover">
+																																																																																																																																																																																																																																																																																<span class="listen"></span>
+																																																																																																																																																																																																																																																																																${s}
+																																																																																																																																																																																																																																																																																<span class="play-btn"></span>
+																																																																																																																																																																																																																																																																															</div>
+																																																																																																																																																																																																																																																																															<a href="#" class="list-name">${y.singer} - ${y.songName}</a>
+																																																																																																																																																																																																																																																																														</a>
+																																																																																																																																																																																																																																																																													</li>`
+				} else {
+					s = `<span class="count-free">${y.ispaid}</span>`;
+					page = `<li>
+																																																																																																																																																																																																																																																																																					<a href="/Music/MusicDetail?SongID=${y.mid}">
+																																																																																																																																																																																																																																																																																						<img src="${y.songImg}" alt="">
+																																																																																																																																																																																																																																																																																						<div class="cover">
+																																																																																																																																																																																																																																																																																							<span class="listen"></span>
+																																																																																																																																																																																																																																																																																							${s}
+																																																																																																																																																																																																																																																																																							<span class="play-btn"></span>
+																																																																																																																																																																																																																																																																																						</div>
+																																																																																																																																																																																																																																																																																						<a href="#" class="list-name">${y.singer} - ${y.songName}</a>
+																																																																																																																																																																																																																																																																																					</a>
+																																																																																																																																																																																																																																																																																				</li>`
+				}
+
+				$("#" + name).append(`
+
+																																																																																																																																																																																																																																																																									${page}
+
+																																																																																																																																																																																																																																																																										`)
+			})
+		}
+
+
+	</script>
+</body>
+</html>
+
+

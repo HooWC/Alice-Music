@@ -1,0 +1,259 @@
+﻿@using Alice_DomainModelEntity.Models;
+@model Alice_DomainModelEntity.Models.User
+
+@{
+	ViewData["Title"] = "SignUpPage";
+}
+
+<style>
+	.showcase {
+		width: 100%;
+		height: 100vh;
+		padding: 3rem;
+		position: relative;
+		background: url('https://i.ibb.co/vXqDmnh/background.jpg') no-repeat center center/cover;
+	}
+
+		.showcase::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			background: rgba(0, 0, 0, 0.65);
+			box-shadow: inset 30px 10px 150px #000000;
+		}
+
+		.showcase .card {
+			z-index: 100;
+			margin: 90px auto;
+		}
+
+			.showcase .card .mybtn {
+				height: 80%;
+				display: flex;
+				float: inline-end;
+				align-items: end;
+				justify-content: end;
+			}
+
+				.showcase .card .mybtn .mybox .btn {
+					padding: 0.6rem 3rem;
+					border-radius: 5px;
+				}
+
+</style>
+
+<header class="showcase">
+	<!-- SELECT2 EXAMPLE -->
+	<div class="card card-default">
+		<div class="card-header">
+			<h3 class="card-title">Alice Music Sign Up</h3>
+
+
+		</div>
+		<!-- /.card-header -->
+		<div class="card-body">
+			<div class="row">
+				<div class="col-md-6">
+					<!-- /.form-group -->
+					@*<div class="form-group">
+					<label>Your ID</label>
+					<input class="form-control select2bs4" id="UserID" value="@ViewBag.ID" disabled="disabled" style="width: 100%;" />
+					</div>*@
+					<!-- /.form-group -->
+					<div class="form-group">
+						<label>Your Name</label>
+						<input class="form-control select2bs4" maxlength="12" id="UserName" placeholder="Your Name" style="width: 100%;" />
+					</div>
+					<div class="form-group">
+						<label>Your Password</label>
+						<input type="password" maxlength="6" class="form-control select2bs4" id="UserPassword" placeholder="Your Password" style="width: 100%;" />
+					</div>
+					<div class="form-group">
+						<label>Your Gmail</label>
+						<input type="email" class="form-control select2bs4" id="UserGmail" placeholder="ep .@@gmail.com" style="width: 100%;" />
+					</div>
+					<div class="form-group">
+						<label>Your Address</label>
+						<input class="form-control select2bs4" id="UserAddress" placeholder="Your Address" style="width: 100%;" />
+					</div>
+				</div>
+				<!-- /.col -->
+				<div class="col-md-6">
+					<div class="form-group">
+						<label asp-for="Gender" class="control-label"></label>
+						<select id="selectGender" asp-for="Gender" asp-items="Html.GetEnumSelectList<EnumGender>()" class="form-control"></select>
+						<span asp-validation-for="Gender" class="text-danger"></span>
+					</div>
+					<div class="mybtn">
+						<div class="mybox">
+							<button id="mybbtt" type="button" class="btn btn-block btn-outline-danger btn-lg" disabled>Sign Up</button>
+						</div>
+
+					</div>
+
+					<!-- /.form-group -->
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.card-body -->
+		<div class="card-footer">
+			Visit <a href="~/Home/Alice_Home">Alice Music</a> for more examples and information about
+			the plugin.
+		</div>
+	</div>
+	<!-- /.card -->
+</header>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+	$(".signup").css({
+		"background": "red",
+		"border-radius": "5px"
+	});
+
+	var inputName = false;
+	var inpuPassword = false;
+	var inputGmail = false;
+	var inputAddress = false;
+
+	$(function () {
+
+		$("#UserName").keyup(function () {
+
+			if ($(this).val() == "") {
+				$("#UserName").css("border", "3px solid red")
+				inputName = false;
+			}
+			else {
+				$("#UserName").css("border", "3px solid green")
+				inputName = true;
+			}
+
+			mmon()
+		})
+
+		$("#UserPassword").keyup(function () {
+			if ($(this).val() == "") {
+				$("#UserPassword").css("border", "3px solid red")
+				inpuPassword = false;
+			}
+			else {
+				$("#UserPassword").css("border", "3px solid green")
+				//inpuPassword = true;
+			}
+
+
+			$.ajax({
+
+				type: "POST",
+				url: "/Ajax/SignUp_Post",
+				dataType: "json",
+				data: {
+					Passwordinput: $(this).val()
+				},
+				success: function (data) {
+
+					if (data == false) {
+						$("#UserPassword").css("border", "3px solid red")
+						inpuPassword = false;
+					} else {
+						$("#UserPassword").css("border", "3px solid green")
+						inpuPassword = true;
+					}
+
+					mmon()
+
+				}
+
+			})
+		})
+
+		$("#UserGmail").keyup(function () {
+
+			if ($(this).val() == "") {
+				$("#UserGmail").css("border", "3px solid red")
+				inputGmail = false;
+			}
+			else {
+				$("#UserGmail").css("border", "3px solid green")
+			}
+
+			$.ajax({
+
+				type: "POST",
+				url: "/Ajax/SignUp_Post_Gmail",
+				dataType: "json",
+				data: {
+					Gmailinpu: $(this).val()
+				},
+				success: function (data) {
+
+					if (data == false) {
+						$("#UserGmail").css("border", "3px solid red")
+						inputGmail = false;
+					} else {
+						$("#UserGmail").css("border", "3px solid green")
+						inputGmail = true;
+					}
+
+					mmon()
+				}
+			})
+		})
+
+		$("#UserAddress").keyup(function () {
+
+			if ($(this).val() == "") {
+				$("#UserAddress").css("border", "3px solid red")
+				inputAddress = false;
+			}
+			else {
+				$("#UserAddress").css("border", "3px solid green")
+				inputAddress = true;
+			}
+			mmon()
+		})
+
+		$("#mybbtt").click(function () {
+
+			$.ajax({
+
+				type: "POST",
+				url: "/Ajax/SignUp",
+				dataType: "json",
+				data: {
+					UserName: $("#UserName").val(),
+					Password: $("#UserPassword").val(),
+					UserGmail: $("#UserGmail").val(),
+					Address: $("#UserAddress").val(),
+					Gender: $("#selectGender").val(),
+				},
+				success: function (data) {
+					if (data == true) {
+						window.location.href = "/Login/LoginPage";
+					}
+				}
+			})
+
+		})
+
+
+	})
+
+	function mmon() {
+		if (inputName == true && inpuPassword == true && inputGmail == true && inputAddress == true) {
+			$("#mybbtt").prop("disabled", false)
+		} else if (inputName == false || inpuPassword == false || inputGmail == false || inputAddress == false) {
+			$("#mybbtt").prop("disabled", true)
+		}
+	}
+
+</script>
+

@@ -1,0 +1,213 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Alice_MVC
+build_property.RootNamespace = Alice_MVC
+build_property.ProjectDir = C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_MVC\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_MVC
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Home/Alice_Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbGljZV9Ib21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Home/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Home/Menu_Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNZW51X0hvbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Loading/Loading_Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hZGluZ1xMb2FkaW5nX0hvbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Loading/Loading_MusicDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hZGluZ1xMb2FkaW5nX011c2ljRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Loading/Loading_SaveData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hZGluZ1xMb2FkaW5nX1NhdmVEYXRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Loading/Loading_SingerStorePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hZGluZ1xMb2FkaW5nX1NpbmdlclN0b3JlUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Loading/Loading_To_Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hZGluZ1xMb2FkaW5nX1RvX0NhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Loading/Loading_To_Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hZGluZ1xMb2FkaW5nX1RvX0xvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Loading/Loading_To_Master.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hZGluZ1xMb2FkaW5nX1RvX01hc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Loading/Loading_To_User.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9hZGluZ1xMb2FkaW5nX1RvX1VzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Login/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cRm9yZ290UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Login/LoginPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW5QYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Login/SignUpPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cU2lnblVwUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Master/Create_Music_Video.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXENyZWF0ZV9NdXNpY19WaWRlby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Master/Create_Singer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXENyZWF0ZV9TaW5nZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Master/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXEhvbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Master/Master_Edit_Music.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXE1hc3Rlcl9FZGl0X011c2ljLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Master/Master_Edit_Singer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXE1hc3Rlcl9FZGl0X1Npbmdlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Master/Master_Edit_User.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXE1hc3Rlcl9FZGl0X1VzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Master/Master_Edit_Video.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXE1hc3Rlcl9FZGl0X1ZpZGVvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Master/Master_Tr_Page_View.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXE1hc3Rlcl9Ucl9QYWdlX1ZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Master/M_Music.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXE1fTXVzaWMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Master/M_Singer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXE1fU2luZ2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Master/M_Transaction.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXE1fVHJhbnNhY3Rpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Master/M_User.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXE1fVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Master/M_Video.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzdGVyXE1fVmlkZW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Music/AddtoCart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXVzaWNcQWRkdG9DYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Music/Music.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXVzaWNcTXVzaWMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Music/MusicDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXVzaWNcTXVzaWNEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Music/SingerDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXVzaWNcU2luZ2VyRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Music/SingerPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXVzaWNcU2luZ2VyUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Shared/Loading_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExvYWRpbmdfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Shared/MasterLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1hc3RlckxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Shared/UserPage_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFVzZXJQYWdlX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/User/CartPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDYXJ0UGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/User/Get_API.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHZXRfQVBJLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/User/SingerStorePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaW5nZXJTdG9yZVBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/User/UserPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/User/User_Cart_Buy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyX0NhcnRfQnV5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/User/User_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyX0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/User/User_Tr_Page.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyX1RyX1BhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/User/User_Tr_Page_View.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyX1RyX1BhZ2VfVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/User/VideoStorePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxWaWRlb1N0b3JlUGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Hoo/Desktop/AliceMusic/Alice_MVC/Alice_MVC/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-krkrdxftmp

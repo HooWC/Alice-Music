@@ -1,0 +1,1496 @@
+﻿@using Alice_MVC.Controllers;
+@{
+	ViewData["Title"] = "Home";
+}
+
+
+<style>
+	/* Global Styles */
+	:root {
+		--primary-color: #e50914;
+		--dark-color: #141414;
+		--light-color: #f4f4f4;
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		user-select: none;
+	}
+
+	body {
+		font-family: 'Arial', sans-serif;
+		-webkit-font-smoothing: antialiased;
+		background: #000;
+		color: #999;
+	}
+
+	ul {
+		list-style: none;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		color: #fff;
+	}
+
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	p {
+		margin: 0.5rem 0;
+	}
+
+	img {
+		width: 100%;
+	}
+
+	.showcase {
+		width: 100%;
+		height: 93vh;
+		position: relative;
+	}
+
+		.showcase::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			background: rgba(0, 0, 0, 0.6);
+			box-shadow: inset 120px 100px 250px #000000, inset -120px -100px 250px #000000;
+		}
+
+	.showcase-top {
+		position: relative;
+		z-index: 2;
+		height: 90px;
+	}
+
+		.showcase-top img {
+			width: 90px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			margin-left: 0;
+		}
+
+		.showcase-top a {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translate(-50%, -50%);
+		}
+
+	.showcase-content {
+		position: relative;
+		z-index: 2;
+		width: 65%;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		margin-top: 9rem;
+	}
+
+		.showcase-content h1 {
+			font-weight: 700;
+			font-size: 5.2rem;
+			line-height: 1.1;
+			margin: 0 0 2rem;
+		}
+
+		.showcase-content p {
+			text-transform: uppercase;
+			color: #fff;
+			font-weight: 400;
+			font-size: 1.9rem;
+			line-height: 1.25;
+			margin: 0 0 2rem;
+		}
+
+	/* Tabs */
+	.tabs {
+		background: var(--dark-color);
+		padding-top: 1rem;
+		border-bottom: 3px solid #3d3d3d;
+		border-right: none;
+	}
+
+		.tabs .container {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 1rem;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+
+		.tabs p {
+			font-size: 1.2rem;
+			padding-top: 0.5rem;
+		}
+
+		.tabs .container > div {
+			padding: 1.5rem 0;
+		}
+
+			.tabs .container > div:hover {
+				color: #fff;
+				cursor: pointer;
+			}
+
+	.tab-border {
+		border-bottom: var(--primary-color) 4px solid;
+	}
+
+	/* Tab Content */
+	.tab-content {
+		padding: 3rem 0;
+		background: #000;
+		color: #fff;
+	}
+
+	/* Hide initial content */
+	#tab-1-content,
+	#tab-2-content,
+	#tab-3-content {
+		display: none;
+		opacity: 0;
+	}
+
+	.show {
+		display: block !important;
+		opacity: 1 !important;
+		transition: all 1000 ease-in;
+	}
+
+	#tab-1-content .tab-1-content-inner {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 2rem;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#tab-2-content .tab-2-content-top {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		grid-gap: 1rem;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#tab-2-content .tab-2-content-bottom {
+		margin-top: 2rem;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 2rem;
+		text-align: center;
+	}
+
+	.table {
+		width: 100%;
+		margin-top: 2rem;
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+
+		.table thead th {
+			text-transform: uppercase;
+			padding: 0.8rem;
+		}
+
+		.table tbody {
+			display: table-row-group;
+			vertical-align: middle;
+			border-color: inherit;
+		}
+
+			.table tbody tr td {
+				color: #999;
+				padding: 0.8rem 1.2rem;
+				text-align: center;
+			}
+
+				.table tbody tr td:first-child {
+					text-align: left;
+				}
+
+			.table tbody tr:nth-child(odd) {
+				background: #222;
+			}
+
+	.footer_dark {
+		max-width: 100%;
+		margin: auto;
+		padding: 2rem;
+		overflow: auto;
+		background: #141414;
+	}
+
+		.footer_dark,
+		.footer_dark a {
+			color: #999;
+			font-size: 0.9rem;
+		}
+
+			.footer_dark p {
+				margin-bottom: 1.5rem;
+			}
+
+			.footer_dark .footer_dark-cols {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				grid-gap: 2rem;
+			}
+
+			.footer_dark li {
+				line-height: 1.9;
+			}
+
+			.footer_dark .lang-select {
+				margin-top: 2rem;
+				color: #999;
+				background-color: #000;
+				background-image: none;
+				border: 1px solid #333;
+				padding: 1rem 1.2rem;
+				border-radius: 5px;
+			}
+
+	/* Container */
+	.container {
+		max-width: 70%;
+		margin: auto;
+		overflow: hidden;
+		padding: 0 2rem;
+	}
+
+	/* Text Styles */
+	.text-xl {
+		font-size: 2rem;
+	}
+
+	.text-lg {
+		font-size: 1.8rem;
+		margin-bottom: 1rem;
+	}
+
+	.text-md {
+		margin-bottom: 1.5rem;
+		font-size: 1.2rem;
+	}
+
+	.text-center {
+		text-align: center;
+	}
+
+	.text-dark {
+		color: #999;
+	}
+
+	/* Buttons */
+	.btn {
+		display: inline-block;
+		background: var(--primary-color);
+		color: #fff;
+		padding: 0.4rem 1.3rem;
+		font-size: 1rem;
+		text-align: center;
+		border: none;
+		cursor: pointer;
+		margin-right: 0.5rem;
+		transition: opacity 0.2s ease-in;
+		outline: none;
+		box-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+		border-radius: 2px;
+	}
+
+		.btn:hover {
+			opacity: 0.9;
+			box-shadow: 0 0 20px red, 0 0 60px red;
+		}
+
+	.btn-rounded {
+		border-radius: 5px;
+	}
+
+	.btn-xl {
+		font-size: 2rem;
+		padding: 1.5rem 2.1rem;
+		text-transform: uppercase;
+		transition: all .3s;
+	}
+
+		.btn-xl:hover {
+			box-shadow: 0 0 20px red, 0 0 60px red;
+			color: white;
+		}
+
+	.btn-lg {
+		font-size: 1rem;
+		padding: 0.8rem 1.3rem;
+		text-transform: uppercase;
+	}
+
+	.btn-icon {
+		margin-left: 1rem;
+	}
+
+	@@media (max-width: 960px) {
+
+		.showcase {
+			height: 70vh;
+		}
+
+		.hide-sm {
+			display: none;
+		}
+
+		.showcase-top img {
+			top: 30%;
+			left: 5%;
+			transform: translate(0);
+		}
+
+		.showcase-content h1 {
+			font-size: 3.7rem;
+			line-height: 1;
+		}
+
+		.showcase-content p {
+			font-size: 1.5rem;
+		}
+
+		.footer_dark .footer_dark-cols {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.btn-xl {
+			font-size: 1.5rem;
+			padding: 1.4rem 2rem;
+			text-transform: uppercase;
+		}
+
+		.text-xl {
+			font-size: 1.5rem;
+		}
+
+		.text-lg {
+			font-size: 1.3rem;
+			margin-bottom: 1rem;
+		}
+
+		.text-md {
+			margin-bottom: 1rem;
+			font-size: 1.2rem;
+		}
+	}
+
+	@@media (max-width: 700px) {
+		.showcase::after {
+			background: rgba(0, 0, 0, 0.6);
+			box-shadow: inset 80px 80px 150px #000000, inset -80px -80px 150px #000000;
+		}
+
+		.showcase-content h1 {
+			font-size: 2.5rem;
+			line-height: 1;
+		}
+
+		.showcase-content p {
+			font-size: 1rem;
+		}
+
+		#tab-1-content .tab-1-content-inner {
+			grid-template-columns: 1fr;
+			text-align: center;
+		}
+
+		#tab-2-content .tab-2-content-top {
+			display: block;
+			text-align: center;
+		}
+
+		#tab-2-content .tab-2-content-bottom {
+			margin-top: 2rem;
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-gap: 2rem;
+			text-align: center;
+		}
+
+		.btn-xl {
+			font-size: 1rem;
+			padding: 1.2rem 1.6rem;
+			text-transform: uppercase;
+		}
+	}
+
+	@@media(max-height: 600px) {
+		.showcase-content {
+			margin-top: 3rem;
+		}
+	}
+
+	.video-container video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		opacity: 0.7;
+	}
+
+	/******************************************************************/
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	ul {
+		list-style: none;
+	}
+
+	a:link, a:visited, a:hover, a:active {
+		text-decoration: none;
+	}
+
+	.rank-list > ul > li > a, .singer > div > p {
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+		.list-name:hover, .cd-name:hover, .cd-author:hover, .rank-type > a:hover, .rank-list > ul > li > a:hover, .about > a:hover, .user-name:hover, .see-more:hover {
+			text-decoration: underline;
+		}
+
+
+
+	.containerv {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border-bottom: none;
+		overflow: hidden;
+		background: black;
+	}
+
+	hr {
+		border: 1px solid #c10d0c;
+	}
+
+	.recommends {
+		background-color: black;
+		border-right: 1px #ccc solid;
+		width: 75%;
+		float: left;
+		padding: 20px;
+		margin: 0 auto;
+	}
+
+	.red-dot {
+		float: left;
+		background: url(http://s2.music.126.net/style/web2/img/index/index.png) -225px -156px no-repeat;
+		height: 27px;
+		width: 33px;
+	}
+
+
+
+	.title {
+		color: #333;
+		font-size: 20px;
+	}
+
+	#hot > .title, #new-cd > .title, #rank > .title {
+		float: left;
+		width: 100px;
+	}
+
+	.type {
+		overflow: hidden;
+		color: #666;
+		font-size: 12px;
+	}
+
+		.type > li {
+			float: left;
+		}
+
+			.type > li > span {
+				color: #666;
+				line-height: 27px;
+				padding: 0 10px;
+				vertical-align: middle;
+			}
+
+				.type > li > span:hover {
+					cursor: pointer;
+				}
+
+			.type > li:last-child {
+				float: right;
+				margin-top: 3px;
+			}
+
+				.type > li:last-child > a > span {
+					float: right;
+					margin-top: 3px;
+					margin-left: 4px;
+					display: block;
+					background: url(http://s2.music.126.net/style/web2/img/index/index.png) 0 -240px no-repeat;
+					height: 12px;
+					width: 12px;
+				}
+
+				.type > li:last-child > a:hover {
+					color: red;
+					text-decoration: none;
+				}
+
+	.lists {
+		overflow: hidden;
+		padding-top: 20px;
+		padding: 20px 30px 0 40px;
+		margin: 0 auto;
+	}
+
+		.lists > li {
+			float: left;
+			width: 200px;
+			height: 200px;
+			margin-right: 10px;
+		}
+
+			.lists > li img {
+				height: 110px;
+				margin-bottom: 0.6rem;
+			}
+
+			.lists > li.no-right-margin {
+				margin: 0;
+			}
+
+	.cover {
+		background-color: #333;
+		opacity: 0.8;
+		height: 30px;
+		width: 200px;
+		position: absolute;
+		margin-top: -35px;
+	}
+
+		.cover > span {
+			display: block;
+			float: left;
+		}
+
+			.cover > span:last-child {
+				float: right;
+			}
+
+	.listen {
+		display: block;
+		background: url(http://s2.music.126.net/style/web2/img/iconall.png) 0 -24px no-repeat;
+		height: 11px;
+		width: 14px;
+		margin: 9px 5px 9px 10px;
+	}
+
+	.count-free {
+		font-size: 12px;
+		color: #d3d3d3;
+		margin: 7px auto;
+		font-weight: bold;
+	}
+
+	.count-vip {
+		font-size: 12px;
+		color: #d60202;
+		margin: 7px auto;
+		font-weight: bold;
+	}
+
+	.play-btn {
+		display: block;
+		background: url(http://s2.music.126.net/style/web2/img/iconall.png) 0 0 no-repeat;
+		height: 17px;
+		width: 16px;
+		margin: 7px 10px 7px 0;
+	}
+
+	.list-name {
+		color: #fff;
+		font-size: 14px;
+		line-height: 18px;
+		display: block;
+		transition: all .3s;
+	}
+
+		.list-name:hover {
+			text-decoration: none;
+			color: orangered;
+		}
+
+	.reason {
+		font-size: 12px;
+		color: #999;
+	}
+
+	.everyday {
+		display: block;
+		background: url(http://s2.music.126.net/style/web2/img/date.png) 0 0 no-repeat;
+		height: 140px;
+		width: 140px;
+	}
+
+	.week {
+		display: block;
+		height: 33px;
+		color: #fed9d9;
+		text-align: center;
+		font-size: 14px;
+		line-height: 33px;
+		border-radius: 10px 10px 0 0;
+	}
+
+	.ad {
+		margin: 20px auto;
+	}
+
+	.day-back {
+		display: block;
+		font-size: 80px;
+		text-align: center;
+		display: block;
+		background: url(http://s2.music.126.net/style/web2/img/date.png) 0 -150px no-repeat;
+		height: 107px;
+		width: 142px;
+	}
+
+	#new-cd {
+		margin-bottom: 20px;
+	}
+
+		#new-cd > ul.lists {
+			margin-top: 20px;
+			padding: 30px 5px;
+			background-color: #eee;
+			border: #ccc 1px solid;
+		}
+
+			#new-cd > ul.lists > li {
+				margin-left: 11px;
+				margin-right: 0;
+				display: block;
+				background: url(http://s2.music.126.net/style/web2/img/coverall.png) 0 -570px no-repeat;
+				height: 142px;
+				width: 118px;
+			}
+
+				#new-cd > ul.lists > li.no-left-margin {
+					margin: 0;
+				}
+
+	.cd-name, .cd-author {
+		font-size: 12px;
+		display: block;
+	}
+
+	.cd-name {
+		color: #000;
+	}
+
+	.cd-author {
+		color: #999;
+	}
+
+	.prev {
+		display: block;
+		background: url(http://s2.music.126.net/style/web2/img/index/index.png) -260px -75px no-repeat;
+		height: 17px;
+		width: 17px;
+		display: block;
+		float: left;
+		margin-top: 50px;
+	}
+
+		.prev:hover {
+			display: block;
+			background: url(http://s2.music.126.net/style/web2/img/index/index.png) -280px -75px no-repeat;
+			height: 17px;
+			width: 17px;
+		}
+
+	.next {
+		display: block;
+		background: url(http://s2.music.126.net/style/web2/img/index/index.png) -300px -75px no-repeat;
+		height: 17px;
+		width: 17px;
+		display: block;
+		float: right;
+		margin-top: 50px;
+	}
+
+		.next:hover {
+			display: block;
+			background: url(http://s2.music.126.net/style/web2/img/index/index.png) -320px -75px no-repeat;
+			height: 17px;
+			width: 17px;
+		}
+
+	.rank-lists {
+		width: 689px;
+		margin: 20px auto;
+		background-color: #eee;
+		border: #ccc 1px solid;
+		overflow: hidden;
+	}
+
+		.rank-lists > li {
+			width: 229px;
+			float: left;
+			border-right: #ccc 1px solid;
+			overflow: hidden;
+		}
+
+	.rank-type {
+		padding: 20px;
+		overflow: hidden;
+	}
+
+		.rank-type > img {
+			float: left;
+			width: 80px;
+			height: 80px;
+			margin-right: 10px;
+		}
+
+		.rank-type > a {
+			font-size: 15px;
+			font-weight: bold;
+			line-height: 20px;
+			color: #000;
+		}
+
+		.rank-type > span {
+			display: block;
+			position: absolute;
+		}
+
+			.rank-type > span.play-btn {
+				margin-left: 90px;
+				display: block;
+				background: url(http://s2.music.126.net/style/web2/img/index/index.png) -267px -205px no-repeat;
+				height: 22px;
+				width: 22px;
+			}
+
+			.rank-type > span.col-btn {
+				margin: 6px 125px;
+				display: block;
+				background: url(http://s2.music.126.net/style/web2/img/index/index.png) -300px -205px no-repeat;
+				height: 22px;
+				width: 22px;
+			}
+
+	.rank-list > ul > li {
+		height: 30px;
+		padding-left: 30px;
+	}
+
+		.rank-list > ul > li:nth-child(even) {
+			background-color: #e8e8e8;
+		}
+
+		.rank-list > ul > li > a {
+			font-size: 12px;
+			color: #000;
+		}
+
+		.rank-list > ul > li:last-child > a {
+			float: right;
+			vertical-align: middle;
+			line-height: 30px;
+			margin-right: 10px;
+		}
+
+	.rank-list .no {
+		font-size: 18px;
+		color: #555;
+		padding: 5px;
+	}
+
+	.rank-list .red {
+		color: #c10d0c;
+	}
+
+	.rank-list:last-child {
+		border: none;
+	}
+
+	.footer {
+		background-color: #f9f9f9;
+		border-top: #ccc 1px solid;
+		height: 150px;
+	}
+
+	.plans {
+		width: 980px;
+		margin: 40px auto;
+	}
+
+	.single-singer, .music-art {
+		width: 300px;
+		float: left;
+	}
+
+		.single-singer > a, .music-art > a {
+			padding-left: 50px;
+			line-height: 20px;
+		}
+
+			.single-singer > a > p, .music-art > a > p {
+				font-size: 12px;
+				color: #555;
+			}
+
+				.single-singer > a > p:last-child, .music-art > a > p:last-child {
+					color: #aaa;
+				}
+
+		.single-singer > a {
+			display: block;
+			background: url(http://s2.music.126.net/style/web2/img/sprite.png) -400px -80px no-repeat;
+			height: 46px;
+			width: 247px;
+		}
+
+		.music-art > a {
+			display: block;
+			background: url(http://s2.music.126.net/style/web2/img/sprite.png) -400px -125px no-repeat;
+			height: 46px;
+			width: 247px;
+		}
+
+	.about {
+		overflow: hidden;
+		font-size: 12px;
+		color: #555;
+		line-height: 20px;
+	}
+
+		.about > a {
+			font-size: 12px;
+			color: #555;
+		}
+
+	#suggestion {
+		float: right;
+	}
+
+		#suggestion > span {
+			float: left;
+			display: block;
+			background: url(http://s2.music.126.net/style/web2/img/icon.png) 0 -39px no-repeat;
+			height: 16px;
+			width: 19px;
+		}
+
+	.right-side {
+		overflow: hidden;
+		background-color: black;
+		/*height: 1744px;*/
+	}
+
+	.user-info {
+		padding: 20px;
+		overflow: hidden;
+		background-color: #f6f6f6;
+		border-bottom: 1px solid #ccc;
+	}
+
+		.user-info > img {
+			float: left;
+			margin-right: 20px;
+			background-color: #fff;
+			padding: 2px;
+			border: 1px #ccc solid;
+		}
+
+		.user-info > ul {
+			overflow: hidden;
+			float: left;
+			margin-top: 20px;
+		}
+
+			.user-info > ul > li {
+				float: left;
+				width: 68px;
+				padding: 0 19px;
+				border-right: 1px #ccc solid;
+			}
+
+				.user-info > ul > li:last-child {
+					border: none;
+				}
+
+				.user-info > ul > li > span {
+					font-size: 14px;
+					color: #555;
+					line-height: 20px;
+				}
+
+					.user-info > ul > li > span:hover {
+						color: #3880cc;
+					}
+
+					.user-info > ul > li > span:first-child {
+						font-size: 20px;
+					}
+
+	.user-name {
+		font-size: 14px;
+		color: #000;
+	}
+
+	.user-level {
+		display: block;
+		background: url(http://s2.music.126.net/style/web2/img/icon2.png) -130px -64px no-repeat;
+		height: 17px;
+		width: auto;
+		padding-left: 25px;
+		margin-left: 100px;
+		font-size: 13px;
+		font-style: italic;
+	}
+
+	.sign {
+		width: 100px;
+		height: 30px;
+		background-color: #3080cc;
+		color: #fff;
+		border: none;
+		border-radius: 5px;
+		margin-top: 10px;
+	}
+
+	.singers {
+		padding: 20px;
+		overflow: hidden;
+	}
+
+		.singers > h4.titlev {
+			float: left;
+			font-size: 14px;
+			font-weight: bold;
+			width: 150px;
+		}
+
+		.singers > hr {
+			border: none;
+			border-top: 1px solid #ccc;
+		}
+
+		.singers .residentsinger .singerv {
+			margin-top: 20px;
+		}
+
+
+
+		.singers > button {
+			width: 100%;
+			height: 35px;
+			font-size: 12px;
+			font-weight: bold;
+		}
+
+	.residentsinger .singerv {
+	}
+
+	.residentsinger .singerv {
+		background-color: #090b21;
+		height: 80px;
+		margin-bottom: 25px;
+	}
+
+	.singerv:hover {
+		background-color: #eee;
+	}
+
+	.singerv div {
+		border: 1px solid #090b21;
+		border-left: none;
+		height: 100px;
+		background: #090b21;
+		text-align: center;
+		margin-bottom: 5px;
+	}
+
+	.singerv img {
+		float: left;
+		width: 100px;
+		height: 100px;
+		object-fit: cover;
+		margin-right: 20px;
+	}
+
+	.singerv div h3 {
+		font-size: 16px;
+		font-weight: bold;
+		color: white;
+		line-height: 50px;
+	}
+
+	.singerv div p {
+		font-size: 12px;
+		color: #aaacac;
+		line-height: 10px;
+	}
+
+	.see-more {
+		float: right;
+		font-size: 12px;
+		vertical-align: middle;
+		line-height: 20px;
+		color: white;
+	}
+
+		.see-more:hover {
+			color: red;
+			text-decoration: none;
+		}
+
+		.see-more span {
+			float: right;
+			margin-top: 3px;
+			margin-left: 4px;
+			display: block;
+			background: url(http://s2.music.126.net/style/web2/img/index/index.png) 0 -240px no-repeat;
+			height: 12px;
+			width: 12px;
+		}
+
+	.djs {
+		padding: 20px;
+	}
+
+		.djs > h4 {
+			font-size: 12px;
+			font-weight: bold;
+		}
+
+		.djs > hr {
+			border: none;
+			border-top: 1px solid #ccc;
+		}
+
+		.djs > ul {
+			margin-top: 20px;
+		}
+
+			.djs > ul > li {
+				margin-bottom: 10px;
+			}
+
+				.djs > ul > li > img {
+					float: left;
+					margin-right: 10px;
+				}
+
+	.dj-name {
+		font-size: 12px;
+		display: block;
+		color: #000;
+		line-height: 20px;
+	}
+
+	.V {
+		display: block;
+		background: url(http://s2.music.126.net/style/web2/img/icon.png) 0 1px no-repeat;
+		height: 13px;
+		width: 11px;
+		position: absolute;
+		margin: -18px 0 0 75px;
+	}
+
+	.dj-intro {
+		font-size: 12px;
+		color: #555;
+	}
+
+	.box-red-dot {
+		height: 30px;
+		line-height: 30px;
+	}
+
+</style>
+
+
+<header class="showcase">
+	<div class="video-container">
+		<video src=@Url.Content("~/BHOG.mp4") id="video-slider" loop autoplay muted></video>
+	</div>
+
+	<div class="showcase-top">
+		<img src="./Image/logo.png" alt="" />
+
+
+	</div>
+	<div class="showcase-content">
+		<h1 style="color:red;font-family:'Times New Roman', Times, serif">Alice <span style="color:white;">Music</span></h1>
+		<p style="color:rgba(222, 213, 213, 0.6);">Welcome Back</p>
+
+
+
+	</div>
+</header>
+
+<div class="containerv">
+	<div class="recommends">
+		<div id="hot">
+			<div class="box-red-dot">
+				<span class="red-dot"></span>
+				<a class="titlev">Top Picks</a>
+			</div>
+			<ul class="type">
+				<li><span id="btn1">Pop</span>|</li>
+				<li><span id="btn2">Rock</span>|</li>
+				<li><span id="btn3">Soft</span>|</li>
+				<li><span id="btn4">Sad</span>|</li>
+				<li><span id="btn5">Chinese</span>|</li>
+				<li><span id="btn6">English</span>|</li>
+				<li><span id="btn7">Japanese</span></li>
+				<li><a href="~/Music/Music">More<span></span></a></li>
+			</ul>
+			<hr>
+
+			<ul class="lists" id="list1">
+			</ul>
+
+
+		</div>
+		<div id="special">
+			<div class="box-red-dot">
+				<span class="red-dot"></span>
+				<a href="" class="titlev">Leaderboard</a>
+			</div>
+			<hr>
+
+			<ul class="lists" id="list2">
+			</ul>
+
+		</div>
+
+
+	</div>
+
+
+	<div class="right-side">
+
+		<div class="singers">
+			<h4 class="titlev"> Resident singer</h4>
+			<a href="~/Music/SingerPage" class="see-more">More<span></span></a>
+			<br>
+			<hr>
+			<div class="residentsinger" id="residentsinger">
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+	$(".MusicHome").css({
+		"background": "red",
+		"border-radius": "5px"
+	});
+
+
+	$(function () {
+
+		$("#btn1").css("color", "red");
+
+		$.ajax({
+			type: "GET",
+			url: "/Ajax/GetPop_Home",
+			dataType: "json",
+			success: function (data) {
+
+				PrintData(data, "list1");
+			}
+		})
+
+		$.ajax({
+			type: "GET",
+			url: "/Ajax/GetResidentSinger",
+			dataType: "json",
+			success: function (data) {
+
+				$.each(data, function (x, y) {
+
+					console.log(y.type)
+
+					var type = "";
+					if (y.type == 0) {
+						type = `<p class="singer-introv">Chinese Singer</p>`;
+					} else if (y.type == 1) {
+						type = `<p class="singer-introv">Japanese Singer</p>`;
+					} else if (y.type == 2) {
+						type = `<p class="singer-introv">English Singer</p>`;
+					} else if (y.type == 3) {
+						type = `<p class="singer-introv">Other Singer</p>`;
+					}
+
+					$("#residentsinger").append(`
+
+
+																								<a class="singerv" href="/Music/SingerDetail?SongID=${y.singerID}">
+																									<img src="${y.singerImage}" alt="">
+																									<div>
+																										<h3 class="singer-namev">${y.singerName}</h3>
+																										${type}
+																									</div>
+																								</a>
+
+
+																							`)
+				})
+			}
+		})
+
+		$.ajax({
+			type: "GET",
+			url: "/Ajax/GetLeaderboard",
+			dataType: "json",
+			success: function (data) {
+				var n = 0;
+				$.each(data, function (x, y) {
+
+
+					n += 1;
+
+					var s = "";
+					var page = "";
+					if (y.ispaid == "VIP") {
+						s = `<span class="count-vip">${y.ispaid} - <span style="color:#ed8713">NO${n}</span></span>`;
+						page = `<li>
+													<a href="/Music/AddtoCart?SongID=${y.mid}">
+														<img src="${y.songImg}" alt="">
+														<div class="cover">
+															<span class="listen"></span>
+															${s}
+															<span class="play-btn"></span>
+														</div>
+														<a href="#" class="list-name">${y.singer} - ${y.songName}</a>
+													</a>
+																																																							</li>`
+					} else {
+						s = `<span class="count-free">${y.ispaid} - <span style="color:#ed8713">NO${n}</span></span>`;
+						page = `<li>
+													<a href="/Music/MusicDetail?SongID=${y.mid}">
+														<img src="${y.songImg}" alt="">
+														<div class="cover">
+															<span class="listen"></span>
+															${s}
+															<span class="play-btn"></span>
+														</div>
+														<a href="#" class="list-name">${y.singer} - ${y.songName}</a>
+													</a>
+												</li>`
+					}
+
+					$("#list2").append(`
+
+									${page}
+
+										`)
+				})
+			}
+		})
+
+
+		$("#btn1").click(function () {
+			$("#btn2,#btn3,#btn4,#btn5,#btn6,#btn7").css("color", "#666");
+			$("#btn1").css("color", "red");
+
+			$("#list1").empty();
+
+			$.ajax({
+				type: "GET",
+				url: "/Ajax/GetPop_Home",
+				dataType: "json",
+				success: function (data) {
+
+					PrintData(data, "list1");
+				}
+			})
+		})
+
+		$("#btn2").click(function () {
+			$("#btn1,#btn3,#btn4,#btn5,#btn6,#btn7").css("color", "#666");
+			$("#btn2").css("color", "red");
+
+			$("#list1").empty();
+
+			$.ajax({
+				type: "GET",
+				url: "/Ajax/GetRock_Home",
+				dataType: "json",
+				success: function (data) {
+
+					PrintData(data, "list1");
+				}
+			})
+		})
+
+		$("#btn3").click(function () {
+			$("#btn2,#btn1,#btn4,#btn5,#btn6,#btn7").css("color", "#666");
+			$("#btn3").css("color", "red");
+			$("#list1").empty();
+
+			$.ajax({
+				type: "GET",
+				url: "/Ajax/GetSoft_Home",
+				dataType: "json",
+				success: function (data) {
+
+					PrintData(data, "list1");
+				}
+			})
+		})
+
+		$("#btn4").click(function () {
+			$("#btn1,#btn3,#btn2,#btn5,#btn6,#btn7").css("color", "#666");
+			$("#btn4").css("color", "red");
+			$("#list1").empty();
+
+			$.ajax({
+				type: "GET",
+				url: "/Ajax/GetSad_Home",
+				dataType: "json",
+				success: function (data) {
+
+					PrintData(data, "list1");
+
+				}
+			})
+		})
+
+		$("#btn5").click(function () {
+			$("#btn1,#btn3,#btn4,#btn2,#btn6,#btn7").css("color", "#666");
+			$("#btn5").css("color", "red");
+			$("#list1").empty();
+
+			$.ajax({
+				type: "GET",
+				url: "/Ajax/GetChinese_Home",
+				dataType: "json",
+				success: function (data) {
+
+					PrintData(data, "list1");
+				}
+			})
+		})
+
+		$("#btn6").click(function () {
+			$("#btn1,#btn3,#btn4,#btn2,#btn5,#btn7").css("color", "#666");
+			$("#btn6").css("color", "red");
+			$("#list1").empty();
+
+			$.ajax({
+				type: "GET",
+				url: "/Ajax/GetEnglish_Home",
+				dataType: "json",
+				success: function (data) {
+
+					PrintData(data, "list1");
+				}
+			})
+		})
+
+		$("#btn7").click(function () {
+			$("#btn1,#btn3,#btn4,#btn2,#btn6,#btn5").css("color", "#666");
+			$("#btn7").css("color", "red");
+			$("#list1").empty();
+
+			$.ajax({
+				type: "GET",
+				url: "/Ajax/GetJapanese_Home",
+				dataType: "json",
+				success: function (data) {
+
+					PrintData(data, "list1");
+				}
+			})
+		})
+
+
+	})
+
+
+	function PrintData(data, name) {
+		$.each(data, function (x, y) {
+
+			var s = "";
+			var page = "";
+			if (y.ispaid == "VIP") {
+				s = `<span class="count-vip">${y.ispaid}</span>`;
+				page = `<li>
+													<a href="/Music/AddtoCart?SongID=${y.mid}">
+														<img src="${y.songImg}" alt="">
+														<div class="cover">
+															<span class="listen"></span>
+															${s}
+															<span class="play-btn"></span>
+														</div>
+														<a href="#" class="list-name">${y.singer} - ${y.songName}</a>
+													</a>
+																																																							</li>`
+			} else {
+				s = `<span class="count-free">${y.ispaid}</span>`;
+				page = `<li>
+													<a href="/Music/MusicDetail?SongID=${y.mid}">
+														<img src="${y.songImg}" alt="">
+														<div class="cover">
+															<span class="listen"></span>
+															${s}
+															<span class="play-btn"></span>
+														</div>
+														<a href="#" class="list-name">${y.singer} - ${y.songName}</a>
+													</a>
+												</li>`
+			}
+
+			$("#" + name).append(`
+
+									${page}
+
+										`)
+		})
+	}
+
+
+
+</script>
+

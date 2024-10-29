@@ -1,0 +1,567 @@
+﻿@using Alice_DomainModelEntity.Models;
+@model Singer
+
+@{
+	ViewData["Title"] = "SingerDetail";
+}
+
+<html>
+<head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		a:link, a:visited, a:hover, a:active {
+			text-decoration: none;
+		}
+
+		.rank-list > ul > li > a, .singer > div > p {
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+
+			.list-name:hover, .cd-name:hover, .cd-author:hover, .rank-type > a:hover, .rank-list > ul > li > a:hover, .about > a:hover, .user-name:hover, .see-more:hover {
+				text-decoration: underline;
+			}
+
+
+
+		.containerv {
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			border-bottom: none;
+			overflow: hidden;
+			background: black;
+		}
+
+		hr {
+			border: 1px solid #c10d0c;
+		}
+
+		.recommends {
+			background-color: black;
+			border-right: 1px #ccc solid;
+			width: 100%;
+			min-height: 100vh;
+			float: left;
+			padding: 20px 10px 20px 10px;
+			margin: 0 auto;
+		}
+
+		.logoimg {
+			width: 45px;
+		}
+
+		.titlev {
+			color: red;
+			font-size: 20px;
+			font-family: 'Times New Roman', Times, serif;
+		}
+
+		.titlev:hover{
+				color: red;
+		}
+
+		#hot > .title, #new-cd > .title, #rank > .title {
+			float: left;
+			width: 100px;
+		}
+
+		.type {
+			overflow: hidden;
+			color: #666;
+			font-size: 12px;
+		}
+
+			.type > li {
+				float: left;
+			}
+
+				.type > li > span {
+					color: #666;
+					line-height: 27px;
+					padding: 0 10px;
+					vertical-align: middle;
+				}
+
+					.type > li > span:hover {
+						cursor: pointer;
+					}
+
+
+		.lists {
+			overflow: hidden;
+			padding-top: 20px;
+			padding: 20px 0px 0px 10px;
+			margin: 0;
+		}
+
+			.lists > li {
+				float: left;
+				width: 200px;
+				height: 200px;
+				margin-right: 6px;
+			}
+
+				.lists > li img {
+					height: 110px;
+					margin-bottom: 0.6rem;
+				}
+
+		img {
+			width: 100%;
+		}
+
+		.lists > li.no-right-margin {
+			margin: 0;
+		}
+
+		.cover {
+			background-color: #333;
+			opacity: 0.8;
+			height: 30px;
+			width: 200px;
+			position: absolute;
+			margin-top: -35px;
+		}
+
+			.cover > span {
+				display: block;
+				float: left;
+			}
+
+				.cover > span:last-child {
+					float: right;
+				}
+
+		.listen {
+			display: block;
+			background: url(http://s2.music.126.net/style/web2/img/iconall.png) 0 -24px no-repeat;
+			height: 11px;
+			width: 14px;
+			margin: 9px 5px 9px 10px;
+		}
+
+		.count-free {
+			font-size: 12px;
+			color: #d3d3d3;
+			margin: 7px auto;
+			font-weight: bold;
+		}
+
+		.count-vip {
+			font-size: 12px;
+			color: #d60202;
+			margin: 7px auto;
+			font-weight: bold;
+		}
+
+		.play-btn {
+			display: block;
+			background: url(http://s2.music.126.net/style/web2/img/iconall.png) 0 0 no-repeat;
+			height: 17px;
+			width: 16px;
+			margin: 7px 10px 7px 0;
+		}
+
+		.list-name {
+			color: #fff;
+			font-size: 14px;
+			line-height: 18px;
+			display: block;
+			transition: all .3s;
+		}
+
+			.list-name:hover {
+				text-decoration: none;
+				color: orangered;
+			}
+
+		.containerv .recommends .mid {
+		}
+
+			.containerv .recommends .mid .tes {
+				color: white;
+				width: 300px;
+				margin: 0 auto;
+				text-align: center;
+			}
+
+				.containerv .recommends .mid .tes p {
+					margin: 0 auto;
+					font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+					font-size: 1rem;
+				}
+
+		.containerv .recommends .singerImgClass {
+			height: 200px;
+			width: 200px;
+			margin: 0 auto;
+			padding-bottom: 0.5rem;
+		}
+
+			.containerv .recommends .singerImgClass img {
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+				margin-bottom: 0.6rem;
+				border-radius: 50%;
+			}
+
+		.recommends .twopart {
+			display: flex;
+			justify-content: space-around;
+		}
+
+			.recommends .twopart .info {
+				max-width: 1000px;
+				padding: 40px 20px 20px 20px;
+				color: white;
+			}
+
+				.recommends .twopart .info .singerinfo {
+					font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+				}
+
+				.recommends .twopart .info span {
+					padding-right: 10px;
+				}
+
+
+		.bubbly-button {
+			font-family: 'Helvetica', 'Arial', sans-serif;
+			display: inline-block;
+			font-size: 1em;
+			padding: 0.5rem 2em;
+			margin-top: 10px;
+			-webkit-appearance: none;
+			appearance: none;
+			background-color: #ff0081;
+			color: #fff;
+			border-radius: 4px;
+			border: none;
+			cursor: pointer;
+			position: relative;
+			transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+			box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+		}
+
+			.bubbly-button:focus {
+				outline: 0;
+			}
+
+			.bubbly-button:before, .bubbly-button:after {
+				position: absolute;
+				content: '';
+				display: block;
+				width: 140%;
+				height: 100%;
+				left: -20%;
+				z-index: -1000;
+				transition: all ease-in-out 0.5s;
+				background-repeat: no-repeat;
+			}
+
+			.bubbly-button:before {
+				display: none;
+				top: -75%;
+				background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 20%, #ff0081 20%, transparent 30%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
+				background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+			}
+
+			.bubbly-button:after {
+				display: none;
+				bottom: -75%;
+				background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
+				background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+			}
+
+			.bubbly-button:active {
+				transform: scale(0.9);
+				background-color: #e60074;
+				box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+			}
+
+			.bubbly-button.animate:before {
+				display: block;
+				animation: topBubbles ease-in-out 0.75s forwards;
+			}
+
+			.bubbly-button.animate:after {
+				display: block;
+				animation: bottomBubbles ease-in-out 0.75s forwards;
+			}
+
+		.bubbly-button1 {
+			font-family: 'Helvetica', 'Arial', sans-serif;
+			display: inline-block;
+			font-size: 1em;
+			padding: 0.5rem 2em;
+			margin-top: 10px;
+			-webkit-appearance: none;
+			appearance: none;
+			background-color: #1a396b;
+			color: #fff;
+			border-radius: 4px;
+			border: none;
+			cursor: pointer;
+			position: relative;
+			transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+			box-shadow: 0 2px 25px #1a396b;
+		}
+
+			.bubbly-button1:focus {
+				outline: 0;
+			}
+
+			.bubbly-button1:before, .bubbly-button1:after {
+				position: absolute;
+				content: '';
+				display: block;
+				width: 140%;
+				height: 100%;
+				left: -20%;
+				z-index: -1000;
+				transition: all ease-in-out 0.5s;
+				background-repeat: no-repeat;
+			}
+
+			.bubbly-button1:before {
+				display: none;
+				top: -75%;
+				background-image: radial-gradient(circle, #2256ab 20%, transparent 20%), radial-gradient(circle, transparent 20%, #2256ab 20%, transparent 30%), radial-gradient(circle, #2256ab 20%, transparent 20%), radial-gradient(circle, #2256ab 20%, transparent 20%), radial-gradient(circle, transparent 10%, #2256ab 15%, transparent 20%), radial-gradient(circle,#2256ab 20%, transparent 20%), radial-gradient(circle, #2256ab 20%, transparent 20%), radial-gradient(circle, #2256ab 20%, transparent 20%), radial-gradient(circle, #2256ab 20%, transparent 20%);
+				background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+			}
+
+			.bubbly-button1:after {
+				display: none;
+				bottom: -75%;
+				background-image: radial-gradient(circle, #2256ab 20%, transparent 20%), radial-gradient(circle, #2256ab 20%, transparent 20%), radial-gradient(circle, transparent 10%, #2256ab 15%, transparent 20%), radial-gradient(circle,#2256ab 20%, transparent 20%), radial-gradient(circle, #2256ab 20%, transparent 20%), radial-gradient(circle, #2256ab 20%, transparent 20%), radial-gradient(circle, #2256ab 20%, transparent 20%);
+				background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+			}
+
+			.bubbly-button1:active {
+				transform: scale(0.9);
+				background-color: #2256ab;
+				box-shadow: 0 2px 25px #0b244d;
+			}
+
+			.bubbly-button1.animate:before {
+				display: block;
+				animation: topBubbles ease-in-out 0.75s forwards;
+			}
+
+			.bubbly-button1.animate:after {
+				display: block;
+				animation: bottomBubbles ease-in-out 0.75s forwards;
+			}
+
+		@@keyframes topBubbles {
+			0% {
+				background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+			}
+
+			50% {
+				background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+			}
+
+			100% {
+				background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+				background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+			}
+		}
+
+		@@keyframes bottomBubbles {
+			0% {
+				background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+			}
+
+			50% {
+				background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+			}
+
+			100% {
+				background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+				background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+			}
+		}
+
+	</style>
+</head>
+<body>
+
+	<h1 style="display:none;" id="mcid">@Model.SingerID</h1>
+
+	<div class="containerv">
+		<div class="recommends">
+
+			<div id="hot">
+				<img class="logoimg" src="~/Image/logo.png" alt="Logo"><a class="titlev">Alice <span style="color:white;">Music</span></a>
+				<div class="twopart">
+					<div class="mid">
+						<div class="singerImgClass">
+							<img src="@Model.SingerImage" alt="" />
+						</div>
+						<div class="tes">
+							<p>@Model.SingerName</p>
+						</div>
+					</div>
+
+					<div class="info">
+						<p class="singerinfo">@Model.SingerInfo</p>
+						<p><span>Debut date:</span>@Model.DebutTime.ToString("MM/dd/yyyy")</p>
+						<div id="FollowButton">
+							@*@if (ViewBag.data == true)
+							{
+							<button class="bubbly-button1" id="follow">Unsubscribe</button>
+							}
+							else
+							{
+							<button class="bubbly-button" id="follow">Follow</button>
+							}*@
+							<button class="bubbly-button" id="follow">Follow</button>
+						</div>
+					</div>
+				</div>
+
+				<hr>
+
+				<ul class="lists" id="list1">
+				</ul>
+
+
+			</div>
+
+		</div>
+
+
+
+	</div>
+
+
+
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+
+		$(".Singeritem").css({
+			"background": "red",
+			"border-radius": "5px"
+		});
+
+		$(function () {
+
+			$.ajax({
+				type: "POST",
+				url: "/Ajax/GetOneSingerSong",
+				dataType: "json",
+				data: {
+					SingerID: $("#mcid").html()
+				},
+				success: function (data) {
+
+					$.each(data, function (x, y) {
+
+						var s = "";
+						var page = "";
+						if (y.ispaid == "VIP") {
+							s = `<span class="count-vip">${y.ispaid}</span>`;
+							page = `<li>
+																				<a href="/Music/AddtoCart?SongID=${y.mid}">
+																					<img src="${y.songImg}" alt="">
+																					<div class="cover">
+																						<span class="listen"></span>
+																						${s}
+																						<span class="play-btn"></span>
+																					</div>
+																					<a href="#" class="list-name">${y.singer} - ${y.songName}</a>
+																				</a>
+																			</li>`
+						} else {
+							s = `<span class="count-free">${y.ispaid}</span>`;
+							page = `<li>
+																											<a href="/Music/MusicDetail?SongID=${y.mid}">
+																												<img src="${y.songImg}" alt="">
+																												<div class="cover">
+																													<span class="listen"></span>
+																													${s}
+																													<span class="play-btn"></span>
+																												</div>
+																												<a href="#" class="list-name">${y.singer} - ${y.songName}</a>
+																											</a>
+																										</li>`
+						}
+
+						$("#list1").append(`
+
+															${page}
+
+																`)
+
+					})
+				}
+			})
+
+			$.ajax({
+				type: "POST",
+				url: "/Ajax/GETFollow",
+				dataType: "json",
+				data: {
+					SingerID: $("#mcid").html()
+				},
+				success: function (data) {
+					if (data == false) {
+						$("#follow").attr('class', 'bubbly-button');
+						$("#follow").html("Follow");
+					} else {
+						$("#follow").attr('class', 'bubbly-button1');
+						$("#follow").html("Unsubscribe");
+					}
+
+				}
+			})
+
+			$("#follow").click(function () {
+
+				$.ajax({
+					type: "POST",
+					url: "/Ajax/FollowSinger",
+					dataType: "json",
+					data: {
+						SingerID: $("#mcid").html()
+					},
+					success: function (data) {
+						if (data == false) {
+							$("#follow").attr('class', 'bubbly-button');
+							$("#follow").html("Follow");
+						} else {
+							$("#follow").attr('class', 'bubbly-button1');
+							$("#follow").html("Unsubscribe");
+						}
+
+					}
+				})
+			})
+
+		})
+
+
+
+	</script>
+
+
+</body>
+</html>
+

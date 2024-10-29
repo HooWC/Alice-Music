@@ -1,0 +1,15 @@
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\bin\Debug\net6.0\Alice_Infrastructure.deps.json
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\bin\Debug\net6.0\Alice_Infrastructure.dll
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\bin\Debug\net6.0\Alice_Infrastructure.pdb
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\bin\Debug\net6.0\Alice_DomainModelEntity.dll
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\bin\Debug\net6.0\Alice_DomainModelEntity.pdb
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\obj\Debug\net6.0\Alice_Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\obj\Debug\net6.0\Alice_Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\obj\Debug\net6.0\Alice_Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\obj\Debug\net6.0\Alice_Infrastructure.AssemblyInfo.cs
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\obj\Debug\net6.0\Alice_Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\obj\Debug\net6.0\Alice_Infrastructure.csproj.CopyComplete
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\obj\Debug\net6.0\Alice_Infrastructure.dll
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\obj\Debug\net6.0\refint\Alice_Infrastructure.dll
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\obj\Debug\net6.0\Alice_Infrastructure.pdb
+C:\Users\Hoo\Desktop\AliceMusic\Alice_MVC\Alice_Infrastructure\obj\Debug\net6.0\ref\Alice_Infrastructure.dll
